@@ -1,0 +1,233 @@
+/* Lula e o PT — página responsiva, mobile-first */
+
+:root {
+  --vermelho: #c8102e;
+  --vermelho-escuro: #a80d22;
+  --rosa-claro: #fdecec;
+  --tinta: #1a0f10;
+  --texto: #3a2f30;
+  --texto-suave: #5b4a4c;
+  --linha: #e4d6d7;
+  --branco: #ffffff;
+  --dourado: #ffe08a;
+  --fonte: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--branco);
+  color: var(--tinta);
+  font-family: var(--fonte);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--tinta);
+  outline-offset: 3px;
+}
+
+.pagina {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Topo */
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--vermelho);
+}
+
+.topo__nome {
+  color: var(--tinta);
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* Abertura */
+.abertura h1 {
+  margin: 0 0 12px;
+  font-size: 36px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.abertura p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--texto);
+}
+
+/* Navegação por temas */
+.temas ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 4px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.temas a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 2px solid var(--vermelho);
+  border-radius: 999px;
+  color: var(--vermelho-escuro);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.temas a:hover {
+  background: var(--vermelho);
+  color: var(--branco);
+}
+
+/* Seções */
+.secao {
+  scroll-margin-top: 16px;
+  padding: 28px 22px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.secao h2 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.secao__intro {
+  margin: 0;
+  font-size: 15px;
+  color: var(--texto);
+}
+
+.secao--rosa {
+  background: var(--rosa-claro);
+}
+
+.secao--vermelha {
+  background: var(--vermelho);
+  color: var(--branco);
+}
+
+.secao--vermelha .secao__intro {
+  color: #ffe8ea;
+}
+
+/* Linha do tempo */
+.linha-do-tempo {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.linha-do-tempo li {
+  position: relative;
+  padding-left: 30px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.linha-do-tempo li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--vermelho);
+}
+
+.secao--vermelha .linha-do-tempo li::before {
+  background: var(--branco);
+}
+
+.ano {
+  font-weight: 800;
+  margin-right: 4px;
+}
+
+.ano::after {
+  content: " ·";
+  font-weight: 400;
+}
+
+/* Rodapé */
+.rodape {
+  padding-top: 16px;
+  border-top: 1px solid var(--linha);
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+/* Telas maiores */
+@media (min-width: 640px) {
+  .pagina {
+    padding: 32px 32px 72px;
+    gap: 36px;
+  }
+
+  main {
+    gap: 36px;
+  }
+
+  .abertura h1 {
+    font-size: 52px;
+  }
+
+  .secao {
+    padding: 40px 36px;
+  }
+
+  .secao h2 {
+    font-size: 32px;
+  }
+
+  .linha-do-tempo li {
+    font-size: 16px;
+  }
+}
